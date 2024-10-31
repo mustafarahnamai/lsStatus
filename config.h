@@ -4,7 +4,7 @@
 const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "";
 
 /* maximum output string length */
 #define MAXLEN 2048
@@ -65,11 +65,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-    { netspeed_tx, " %sB/s "    , "wlp2s0"}, // upload
-    { netspeed_rx, " %sB/s "    , "wlp2s0"}, // download
+    //{ netspeed_tx, " %s"    , "wlp3s0"}, // upload
+    //{ netspeed_rx, " %s"    , "wlp3s0"}, // download
+    { run_command, " %s "         , "/home/rahnamai/repos/slstatus/netspeed.sh"},
     { cpu_perc, " CPU:%s%% "    , NULL},
 	{ ram_perc, " RAM:%s%% "    , NULL},
     { battery_perc, " BAT:%s%% ", "BAT1"},
-    { datetime, "%s"            , " %a %d %b  %T"},
-	{ keymap,   "  %s"          , NULL}
+    { datetime, " %s"            , " %a %d %b  %T"},
+	{ keymap,   " %s"          , NULL}
 };
